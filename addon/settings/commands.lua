@@ -4,7 +4,7 @@ local L = ns.L
 
 
 SLASH_MICROMENUEDIT1 = "/micromenuedit"
-SLASH_MICROMENEDIT2 = "/mme"
+SLASH_MICROMENUEDIT2 = "/mme"
 
 local function openSettings()
     if Settings and Settings.OpenToCategory and ns.settingsCategory then
@@ -15,7 +15,7 @@ end
 local function displayCommandHelp()
     print(string.format(
         "|c%s%s:|r %s |cff00ff00" ..
-        SLASH_MICROMENEDIT1 .. " |r %s |cff00ff00" .. SLASH_MICROMENEDIT2 .. "|r %s.",
+        SLASH_MICROMENUEDIT1 .. " |r %s |cff00ff00" .. SLASH_MICROMENUEDIT2 .. "|r %s.",
         "ffffd200", name, L["COMMAND_USE"], L["COMMAND_OR"], L["COMMAND_DESCRIPTION"]))
 end
 

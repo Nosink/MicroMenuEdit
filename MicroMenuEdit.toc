@@ -43,7 +43,6 @@ addon/model/microBar.lua
 # ---------------------
 addon/view/microBar.lua
 # ---------------------
-addon/controller/microBar.lua
 # ---------------------
 
 # Addon - Core

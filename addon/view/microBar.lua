@@ -18,7 +18,7 @@ local function onMicroButtonsLoaded(_, loadedFrames)
     toggleMicroButtons()
 end
 
-ns.bus:RegisterEvent(name .. "_REQUEST_MICRO_BUTTONS_FRIST_SET", onMicroButtonsLoaded)
+ns.bus:RegisterEvent(name .. "_MICRO_BUTTONS_LOADED", onMicroButtonsLoaded)
 
 local function onSettingsChanged(_, _)
     if not frames then return end
