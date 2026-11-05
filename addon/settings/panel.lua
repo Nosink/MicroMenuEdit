@@ -26,8 +26,8 @@ microMenuSection:AddCheckBox(L["MICRO_MENU_ACCOUNT_COLLECTIONS"], "accountCollec
 microMenuSection:AddCheckBox(L["MICRO_MENU_SHOP"], "shop")
 microMenuSection:AddCheckBox(L["MICRO_MENU_GAME_MENU"], "gameMenu")
 
-local sizeSection = builder:CreateSection(L["LKEY_OPTIONS_SIZE_TITLE"])
-sizeSection:AddSlider(L["LKEY_OPTIONS_SIZE_SLIDER"], "scale", {
+local scaleSection = builder:CreateSection(L["LKEY_OPTIONS_SCALE_TITLE"])
+scaleSection:AddSlider(L["LKEY_OPTIONS_SCALE_SLIDER"], "scale", {
     values = { min = 0.6, max = 2, step = 0.1 }, width = 150,
 })
 
@@ -40,5 +40,4 @@ local function onShow()
 end
 
 ns.bus:HookScript(builder.optionsPanel, "OnShow", onShow)
-ns.bus:RegisterEvent(name .. "_SETTINGS_CHANGED", onShow)
 ns.bus:RegisterEvent(name .. "_VARIABLES_LOADED", onShow)

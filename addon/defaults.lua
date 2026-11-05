@@ -18,10 +18,7 @@ local defaults = {
     shop = true,
     gameMenu = true,
 
-    fade = true,
-    fadeDuration = 0.5,
-    fadeInOpacity = 1,
-    fadeOutOpacity = 0.5,
+    scale = 0.8
 }
 
 local defaultsPC = {
