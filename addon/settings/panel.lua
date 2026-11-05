@@ -26,17 +26,9 @@ microMenuSection:AddCheckBox(L["MICRO_MENU_ACCOUNT_COLLECTIONS"], "accountCollec
 microMenuSection:AddCheckBox(L["MICRO_MENU_SHOP"], "shop")
 microMenuSection:AddCheckBox(L["MICRO_MENU_GAME_MENU"], "gameMenu")
 
-local fadeSection = builder:CreateSection(L["LKEY_OPTIONS_FADE_TITLE"])
-fadeSection:AddCheckBox(L["LKEY_OPTIONS_FADE_CB"], "fade")
-fadeSection:AddEditBox(L["LKEY_OPTIONS_FADE_DURATION_EB"], "fadeDuration",
-    builder.settings.editBox:NewSettings({
-        width = 50, isNumeric = true, allowDecimals = true, validator = builder.inRangeValidator(0, 5)
-    }, fadeSection.anchor))
-fadeSection:AddSlider(L["LKEY_OPTIONS_FADE_OUT_OPACITY_SLIDER"], "fadeOutOpacity", {
-    values = { min = 0, max = 1, step = 0.01 }, width = 150
-})
-fadeSection:AddSlider(L["LKEY_OPTIONS_FADE_IN_OPACITY_SLIDER"], "fadeInOpacity", {
-    values = { min = 0, max = 1, step = 0.01 }, width = 150
+local sizeSection = builder:CreateSection(L["LKEY_OPTIONS_SIZE_TITLE"])
+sizeSection:AddSlider(L["LKEY_OPTIONS_SIZE_SLIDER"], "scale", {
+    values = { min = 0.6, max = 2, step = 0.1 }, width = 150,
 })
 
 -- Register

@@ -3,21 +3,24 @@ local name, ns = ...
 local enums = ns.enums
 local microButtonData = ns.microButtonData
 
-local function onVariablesLoaded()
-    local microMenu = _G["MicroMenu"]
+local function getMicroMenuFrame()
+    return _G["MicroMenu"]
+end
 
-    local frames = {
-        microButtonData.new("borderArt", microMenu.BorderArt),
-        microButtonData.new("backgroundArt", microMenu.BackgroundArt)
+local function onVariablesLoaded()
+    local microMenu = getMicroMenuFrame()
+
+    local microButtons = {
+        microButtonData.new("borderArt", microMenu.BorderArt or {}),
+        microButtonData.new("backgroundArt", microMenu.BackgroundArt or {})
     }
 
-    for button, databaseKey in pairs(enums.MicroButtons) do
-        local uiButton = _G[button .. "MicroButton"]
-        uiButton.databaseKey = databaseKey
-        table.insert(frames, microButtonData.new(databaseKey, uiButton))
+    for identifier, databaseKey in pairs(enums.MicroButtons) do
+        local microButton = _G[identifier .. "MicroButton"]
+        table.insert(microButtons, microButtonData.new(databaseKey, microButton))
     end
 
-    ns.bus:TriggerEvent(name .. "_MICRO_BUTTONS_LOADED", frames)
+    ns.bus:TriggerEvent(name .. "_MICRO_BUTTONS_LOADED", microButtons)
 end
 
 ns.bus:RegisterEvent(name .. "_VARIABLES_LOADED", onVariablesLoaded)

@@ -4,17 +4,18 @@ local frames = nil
 local function toggleMicroButtons()
     if not frames then return end
 
-    for _, frame in ipairs(frames) do
-        if frame.forceHide then
+    for _, button in ipairs(frames) do
+        local frame = button.frame
+        if button.forceHide then
             ns.bus:HookScript(frame, "OnShow", function(self)
-                if ns.db[self.databaseKey] then
+                if ns.db[button.databaseKey] then
                     self:Show()
                 else
                     self:Hide()
                 end
             end)
         end
-        if ns.db[frame.databaseKey] then
+        if ns.db[button.databaseKey] then
             frame:Show()
         else
             frame:Hide()
@@ -22,23 +23,9 @@ local function toggleMicroButtons()
     end
 end
 
-local function hookFadeEvents()
-    if not frames then return end
-
-    for _, frame in ipairs(frames) do
-        ns.bus:HookScript(frame, "OnEnter", function(self)
-            self:SetAlpha(ns.db.fadeInOpacity)
-        end)
-        ns.bus:HookScript(frame, "OnLeave", function(self)
-            self:SetAlpha(ns.db.fadeOutOpacity)
-        end)
-    end
-end
-
 local function onMicroButtonsLoaded(_, loadedFrames)
     frames = loadedFrames
     toggleMicroButtons()
-    hookFadeEvents()
 end
 
 ns.bus:RegisterEvent(name .. "_MICRO_BUTTONS_LOADED", onMicroButtonsLoaded)
