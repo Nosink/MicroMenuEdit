@@ -3,6 +3,9 @@ local _, ns = ...
 local defaults = {
     microMenu = true,
 
+    borderArt = true,
+    backgroundArt = true,
+
     characterInfo = true,
     professions = true,
     spellbook = true,

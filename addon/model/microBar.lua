@@ -1,27 +1,13 @@
 local name, ns = ...
 
-local frames = nil
-
-local function toggleMicroButtons()
-    if frames then return end
-
-    for _, frame in ipairs(frames) do
-        if frame then
-            if frame.key and ns.db[frame.key] then
-                frame:Show()
-            else
-                frame:Hide()
-            end
-        end
-    end
-end
-
-local function onPlayerEnteringWorld()
-    if frames then return end
-
+local function onVariablesLoaded()
+    local borderArt = _G["MicroMenu"].BorderArt
+    borderArt.key = "borderArt"
+    local backgroundArt = _G["MicroMenu"].BackgroundArt
+    backgroundArt.key = "backgroundArt"
     local characterMicroButton = _G["CharacterMicroButton"]
     characterMicroButton.key = "characterInfo"
-    local professionsMicroButton = _G["SpellbookMicroButton"]
+    local professionsMicroButton = _G["ProfessionMicroButton"]
     professionsMicroButton.key = "professions"
     local spellbookMicroButton = _G["SpellbookMicroButton"]
     spellbookMicroButton.key = "spellbook"
@@ -31,6 +17,8 @@ local function onPlayerEnteringWorld()
     questLogMicroButton.key = "questLog"
     local guildMicroButton = _G["GuildMicroButton"]
     guildMicroButton.key = "guildAndInformation"
+    local legacyMicroButton = _G["LegacyMicroButton"]
+    legacyMicroButton.key = "legacy"
     local lfgMicroButton = _G["LFDMicroButton"]
     lfgMicroButton.key = "groupFinder"
     local collectionsMicroButton = _G["CollectionsMicroButton"]
@@ -40,28 +28,23 @@ local function onPlayerEnteringWorld()
     local gameMenuMicroButton = _G["MainMenuMicroButton"]
     gameMenuMicroButton.key = "gameMenu"
 
-    frames = {
+    local frames = {
+        borderArt,
+        backgroundArt,
         characterMicroButton,
         professionsMicroButton,
         spellbookMicroButton,
         talentsMicroButton,
         questLogMicroButton,
         guildMicroButton,
+        legacyMicroButton,
         lfgMicroButton,
         collectionsMicroButton,
         shopMicroButton,
         gameMenuMicroButton
     }
 
-    toggleMicroButtons()
+    ns.bus:TriggerEvent(name .. "_MICRO_BUTTONS_LOADED", frames)
 end
 
-ns.bus:RegisterEvent(name .. "_PLAYER_ENTERING_WORLD", onPlayerEnteringWorld)
-
-local function onSettingsChanged(_, _)
-    if not frames then return end
-
-    toggleMicroButtons()
-end
-
-ns.bus:RegisterEvent(name .. "_SETTINGS_CHANGED", onSettingsChanged)
+ns.bus:RegisterEvent(name .. "_VARIABLES_LOADED", onVariablesLoaded)

@@ -1,5 +1,5 @@
 
-## Title: EnhancedUI
+## Title: MicroMenuEdit
 
 ## Interface:  16001
 ## Category: Interface
@@ -21,8 +21,8 @@
 ## Version: 0.1.0
 ## IconTexture: Interface\Icons\inv_misc_coin_01
 
-## SavedVariables: EnhancedUIDB
-## SavedVariablesPerCharacter: EnhancedUIPCDB
+## SavedVariables: MicroMenuEditIDB
+## SavedVariablesPerCharacter: MicroMenuEditPCDB
 
 # _CORE
 core.xml
@@ -39,9 +39,11 @@ addon/settings/commands.lua
 
 # Addon - MVC
 # ---------------------
+addon/model/microBar.lua
 # ---------------------
-addon/controller/player.lua
+addon/view/microBar.lua
 # ---------------------
+addon/controller/microBar.lua
 # ---------------------
 
 # Addon - Core
