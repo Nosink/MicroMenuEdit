@@ -17,6 +17,11 @@ local defaults = {
     accountCollections = true,
     shop = true,
     gameMenu = true,
+
+    fade = true,
+    fadeDuration = 0.5,
+    fadeInOpacity = 1,
+    fadeOutOpacity = 0.5,
 }
 
 local defaultsPC = {

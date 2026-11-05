@@ -21,11 +21,15 @@
 ## Version: 0.1.0
 ## IconTexture: Interface\Icons\inv_misc_coin_01
 
-## SavedVariables: MicroMenuEditIDB
+## SavedVariables: MicroMenuEditDB
 ## SavedVariablesPerCharacter: MicroMenuEditPCDB
 
 # _CORE
 core.xml
+
+# Addon - Data
+addon/data/microButton.lua
+addon/data/microButtonsType.lua
 
 # Addon - Database
 addon/defaults.lua
