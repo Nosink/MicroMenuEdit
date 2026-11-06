@@ -15,9 +15,9 @@ local function onVariablesLoaded()
         microButtonData.new("background", microMenu.BackgroundArt or {})
     }
 
-    for identifier, databaseKey in pairs(enums.MicroButtons) do
+    for identifier, data in pairs(enums.MicroButtons) do
         local microButton = _G[identifier .. "MicroButton"]
-        table.insert(microButtons, microButtonData.new(databaseKey, microButton))
+        table.insert(microButtons, microButtonData.new(data.databaseKey, microButton))
     end
 
     ns.bus:TriggerEvent(name .. "_MICRO_BUTTONS_LOADED", microButtons)
