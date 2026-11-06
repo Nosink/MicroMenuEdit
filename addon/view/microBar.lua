@@ -1,45 +1,49 @@
 local name, ns = ...
 
+local enums = ns.enums
+
 local frames = nil
+
+local function setSingleShown(frame, button)
+    frame:SetShown(ns.db[button.databaseKey])
+end
+
+local function hookOnShow()
+    if not frames then return end
+    for _, button in ipairs(frames) do
+        ns.bus:HookScript(button.frame, "OnShow", function(self) setSingleShown(self, button) end)
+    end
+end
+
+local function setShown()
+    if not frames then return end
+    for _, button in ipairs(frames) do
+        setSingleShown(button.frame, button)
+    end
+end
 
 local function getMicroMenuFrame()
     return _G["MicroMenu"]
 end
 
-local function toggleMicroButtons()
-    if not frames then return end
-
-    for _, button in ipairs(frames) do
-        local frame = button.frame
-        if button.forceHide then
-            ns.bus:HookScript(frame, "OnShow", function(self)
-                if ns.db[button.databaseKey] then
-                    self:Show()
-                else
-                    self:Hide()
-                end
-            end)
-        end
-        if ns.db[button.databaseKey] then
-            frame:Show()
-        else
-            frame:Hide()
-        end
-    end
-end
-
 local function setScale()
     local frame = getMicroMenuFrame()
-    print(frame:GetScale())
-    print(ns.db.scale)
-    frame:SetScale(tonumber(ns.db.scale))
-    print(frame:GetScale())
+    frame:SetScale(ns.db.scale)
+end
+
+
+local function setPerformanceBarShown()
+    local frame = _G["MainMenuMicroButton"]
+    frame.MainMenuBarPerformanceBar:SetShown(ns.db.performanceBar)
 end
 
 local function onMicroButtonsLoaded(_, loadedFrames)
     frames = loadedFrames
-    toggleMicroButtons()
+
+    hookOnShow()
+    setShown()
     setScale()
+    setPerformanceBarShown()
 end
 
 ns.bus:RegisterEvent(name .. "_MICRO_BUTTONS_LOADED", onMicroButtonsLoaded)
@@ -48,8 +52,10 @@ local function onSettingsChanged(_, key)
     if not frames then return end
     if (key == "scale") then
         setScale()
+    elseif (key == "performanceBar") then
+        setPerformanceBarShown()
     else
-        toggleMicroButtons()
+        setShown()
     end
 end
 

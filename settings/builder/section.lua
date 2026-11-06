@@ -54,9 +54,12 @@ function section:Fetch()
     end
 end
 
-function ns.builder:CreateSection(text, anchor)
+function ns.builder:CreateSection(text, anchor, offset)
+    local offset = offset or
+        ns.builder.offset(0, -8)
+
     local title = self.optionsPanel.content:CreateFontString(nil, "ARTWORK", "GameFontNormalLarge")
-    title:SetPoint("TOPLEFT", anchor or self.anchor, "BOTTOMLEFT", 0, -8)
+    title:SetPoint("TOPLEFT", anchor or self.anchor, "BOTTOMLEFT", offset.x, offset.y)
     title:SetTextColor(1, 0.82, 0, 1)
     title:SetHeight(30)
     title:SetText(text)

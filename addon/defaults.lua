@@ -3,8 +3,7 @@ local _, ns = ...
 local defaults = {
     microMenu = true,
 
-    borderArt = true,
-    backgroundArt = true,
+    background = true,
 
     characterInfo = true,
     professions = true,
@@ -17,6 +16,7 @@ local defaults = {
     accountCollections = true,
     shop = true,
     gameMenu = true,
+    performanceBar = true,
 
     scale = 0.8
 }

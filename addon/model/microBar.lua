@@ -11,8 +11,8 @@ local function onVariablesLoaded()
     local microMenu = getMicroMenuFrame()
 
     local microButtons = {
-        microButtonData.new("borderArt", microMenu.BorderArt or {}),
-        microButtonData.new("backgroundArt", microMenu.BackgroundArt or {})
+        microButtonData.new("background", microMenu.BorderArt or {}),
+        microButtonData.new("background", microMenu.BackgroundArt or {})
     }
 
     for identifier, databaseKey in pairs(enums.MicroButtons) do
