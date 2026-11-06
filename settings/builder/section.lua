@@ -15,6 +15,10 @@ function section:addControl(control)
     return control
 end
 
+function section:AddFetch(fetch)
+    self.fetchs[#self.fetchs + 1] = fetch
+end
+
 function section:AddCheckBox(text, key, params)
     local anchor, checkBox = ns.builder.CreateCheckBox(self, text, key, params)
     self:setAnchor(anchor)
@@ -52,6 +56,9 @@ function section:Fetch()
     for _, control in ipairs(self.controls) do
         if control.Fetch then control:Fetch() end
     end
+    for _, fetch in ipairs(self.fetchs) do
+        if fetch.Fetch then fetch:Fetch() end
+    end
 end
 
 function ns.builder:CreateSection(text, anchor, offset)
@@ -70,6 +77,7 @@ function ns.builder:CreateSection(text, anchor, offset)
         optionsPanel = self.optionsPanel.content,
         anchor = title,
         controls = {},
+        fetchs = {},
     }, section)
 
     self.optionsPanel.sections[#self.optionsPanel.sections + 1] = newSection
