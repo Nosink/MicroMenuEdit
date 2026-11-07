@@ -5,7 +5,7 @@ if ns.locale == "zhCN" then
     L["LKEY_OPTIONS_TITLE"] = "编辑微型菜单"
     L["OPTIONS_MICRO_MENU"] = "微型菜单"
     L["MICRO_MENU_BORDER_ART"] = "显示微型菜单边框"
-    L["MICRO_MENU_HIDE_PERFORMANCE_BAR"] = "隐藏性能条"
+    L["MICRO_MENU_SHOW_PERFORMANCE_BAR"] = "显示性能条"
     L["LKEY_OPTIONS_SCALE_TITLE"] = "缩放"
     L["LKEY_OPTIONS_SCALE_SLIDER"] = "微型菜单缩放"
 

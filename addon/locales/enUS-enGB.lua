@@ -4,7 +4,7 @@ local L = ns.L
 L["LKEY_OPTIONS_TITLE"] = "Micro Menu Edit"
 L["OPTIONS_MICRO_MENU"] = "Micro Menu"
 L["MICRO_MENU_BORDER_ART"] = "Show micro menu border"
-L["MICRO_MENU_HIDE_PERFORMANCE_BAR"] = "Hide performance bar"
+L["MICRO_MENU_SHOW_PERFORMANCE_BAR"] = "Show performance bar"
 L["LKEY_OPTIONS_SCALE_TITLE"] = "Scale"
 L["LKEY_OPTIONS_SCALE_SLIDER"] = "Micro menu scale"
 

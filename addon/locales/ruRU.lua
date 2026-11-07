@@ -5,7 +5,7 @@ if ns.locale == "ruRU" then
     L["LKEY_OPTIONS_TITLE"] = "Настройка микроменю"
     L["OPTIONS_MICRO_MENU"] = "Микроменю"
     L["MICRO_MENU_BORDER_ART"] = "Показывать рамку микроменю"
-    L["MICRO_MENU_HIDE_PERFORMANCE_BAR"] = "Скрыть панель производительности"
+    L["MICRO_MENU_SHOW_PERFORMANCE_BAR"] = "Показывать панель производительности"
     L["LKEY_OPTIONS_SCALE_TITLE"] = "Масштаб"
     L["LKEY_OPTIONS_SCALE_SLIDER"] = "Масштаб микроменю"
 

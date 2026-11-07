@@ -14,7 +14,7 @@ builder:CreateTitle(L["LKEY_OPTIONS_TITLE"])
 -- Options
 local microMenuSection = builder:CreateSection(L["OPTIONS_MICRO_MENU"])
 microMenuSection:AddCheckBox(L["MICRO_MENU_BORDER_ART"], "background")
-microMenuSection:AddCheckBox(L["MICRO_MENU_HIDE_PERFORMANCE_BAR"], "performanceBar")
+microMenuSection:AddCheckBox(L["MICRO_MENU_SHOW_PERFORMANCE_BAR"], "performanceBar")
 
 local function createButton(builder, parent, index)
     local button = CreateFrame("Button", nil, builder.optionsPanel, "MainMenuBarMicroButton")

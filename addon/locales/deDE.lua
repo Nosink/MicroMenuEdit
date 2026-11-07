@@ -5,7 +5,7 @@ if ns.locale == "deDE" then
     L["LKEY_OPTIONS_TITLE"] = "Mikromenü bearbeiten"
     L["OPTIONS_MICRO_MENU"] = "Mikromenü"
     L["MICRO_MENU_BORDER_ART"] = "Rahmen des Mikromenüs anzeigen"
-    L["MICRO_MENU_HIDE_PERFORMANCE_BAR"] = "Leistungsleiste ausblenden"
+    L["MICRO_MENU_SHOW_PERFORMANCE_BAR"] = "Leistungsleiste anzeigen"
     L["LKEY_OPTIONS_SCALE_TITLE"] = "Skalierung"
     L["LKEY_OPTIONS_SCALE_SLIDER"] = "Skalierung des Mikromenüs"
 

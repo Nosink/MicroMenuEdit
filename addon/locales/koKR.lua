@@ -5,7 +5,7 @@ if ns.locale == "koKR" then
     L["LKEY_OPTIONS_TITLE"] = "미니 메뉴 편집"
     L["OPTIONS_MICRO_MENU"] = "미니 메뉴"
     L["MICRO_MENU_BORDER_ART"] = "미니 메뉴 테두리 표시"
-    L["MICRO_MENU_HIDE_PERFORMANCE_BAR"] = "성능 표시줄 숨기기"
+    L["MICRO_MENU_SHOW_PERFORMANCE_BAR"] = "성능 표시줄 표시"
     L["LKEY_OPTIONS_SCALE_TITLE"] = "크기"
     L["LKEY_OPTIONS_SCALE_SLIDER"] = "미니 메뉴 크기"
 

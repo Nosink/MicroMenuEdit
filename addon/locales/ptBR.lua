@@ -5,7 +5,7 @@ if ns.locale == "ptBR" then
     L["LKEY_OPTIONS_TITLE"] = "Editar micromenu"
     L["OPTIONS_MICRO_MENU"] = "Micromenu"
     L["MICRO_MENU_BORDER_ART"] = "Mostrar borda do micromenu"
-    L["MICRO_MENU_HIDE_PERFORMANCE_BAR"] = "Ocultar barra de desempenho"
+    L["MICRO_MENU_SHOW_PERFORMANCE_BAR"] = "Mostrar barra de desempenho"
     L["LKEY_OPTIONS_SCALE_TITLE"] = "Escala"
     L["LKEY_OPTIONS_SCALE_SLIDER"] = "Escala do micromenu"
 
