@@ -18,7 +18,7 @@
 ## Notes-zhTW: X
 
 ## Author: Nosink Ð
-## Version: 0.1.0
+## Version: 1.0.0
 ## IconTexture: Interface\Icons\inv_misc_coin_01
 
 ## SavedVariables: MicroMenuEditDB
