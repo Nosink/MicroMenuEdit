@@ -2,6 +2,7 @@ local _, ns = ...
 
 local defaults = {
     microMenu = true,
+    padding = 0,
 
     background = true,
 

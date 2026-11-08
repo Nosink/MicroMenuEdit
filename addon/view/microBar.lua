@@ -1,6 +1,6 @@
 local name, ns = ...
 
-local enums = ns.enums
+local BASE_DEFAULT_PADDING = 5
 
 local frames = nil
 
@@ -28,13 +28,21 @@ end
 
 local function setScale()
     local frame = getMicroMenuFrame()
-    frame:SetScale(ns.db.scale)
+    frame:SetNormalScale(ns.db.scale)
 end
 
 
 local function setPerformanceBarShown()
     local frame = _G["MainMenuMicroButton"]
     frame.MainMenuBarPerformanceBar:SetShown(ns.db.performanceBar)
+end
+
+local function updateFramePadding()
+    local frame = getMicroMenuFrame()
+    frame.childXPadding = ns.db.padding - BASE_DEFAULT_PADDING
+    frame.childYPadding = ns.db.padding - BASE_DEFAULT_PADDING
+    frame:MarkDirty()
+    frame:UpdateScale()
 end
 
 local function onMicroButtonsLoaded(_, loadedFrames)
@@ -44,6 +52,7 @@ local function onMicroButtonsLoaded(_, loadedFrames)
     setShown()
     setScale()
     setPerformanceBarShown()
+    updateFramePadding()
 end
 
 ns.bus:RegisterEvent(name .. "_MICRO_BUTTONS_LOADED", onMicroButtonsLoaded)
@@ -54,6 +63,8 @@ local function onSettingsChanged(_, key)
         setScale()
     elseif (key == "performanceBar") then
         setPerformanceBarShown()
+    elseif (key == "padding") then
+        updateFramePadding()
     else
         setShown()
     end

@@ -15,6 +15,9 @@ builder:CreateTitle(L["LKEY_OPTIONS_TITLE"])
 local microMenuSection = builder:CreateSection(L["OPTIONS_MICRO_MENU"])
 microMenuSection:AddCheckBox(L["MICRO_MENU_BORDER_ART"], "background")
 microMenuSection:AddCheckBox(L["MICRO_MENU_SHOW_PERFORMANCE_BAR"], "performanceBar")
+microMenuSection:AddSlider(L["MICRO_MENU_PADDING"], "padding",
+    { values = { min = -10, max = 10, step = 1 }, width = 150 })
+microMenuSection:AddCheckBox(L["MICRO_MENU_HORIZONTAL"], "horizontal")
 
 local function createButton(builder, parent, index)
     local button = CreateFrame("Button", nil, builder.optionsPanel, "MainMenuBarMicroButton")
