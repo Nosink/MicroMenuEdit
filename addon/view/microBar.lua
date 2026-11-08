@@ -31,7 +31,6 @@ local function setScale()
     frame:SetNormalScale(ns.db.scale)
 end
 
-
 local function setPerformanceBarShown()
     local frame = _G["MainMenuMicroButton"]
     frame.MainMenuBarPerformanceBar:SetShown(ns.db.performanceBar)
