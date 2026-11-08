@@ -88,7 +88,7 @@ local function setEditBoxEvents(key)
         local text = self:GetText()
         if not self.validator.validate(text) then
             text = self.validator.normalize(text)
-            self:SetText(text)
+            self.slider:SetEditBoxText(text)
         end
         local value = tonumber(text)
         self:SetSliderValue(value)
@@ -102,6 +102,13 @@ end
 local function linkEditBoxToSlider()
     slider.editBox = editBox
     slider.SetEditBoxText = function(self, value)
+        local step = self:GetValueStep()
+        local stepText = tostring(step)
+        local decimalPoint = stepText:find("%.")
+
+        if (decimalPoint) then
+            value = string.format("%." .. decimalPoint .. "f", value)
+        end
         self.editBox:SetText(value)
     end
 
