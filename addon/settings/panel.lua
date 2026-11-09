@@ -9,14 +9,16 @@ local builder = ns.builder
 builder:CreateOptionsPanel()
 
 -- Title
-builder:CreateTitle(L["LKEY_OPTIONS_TITLE"])
+builder:CreateTitle(L["OPTIONS_TITLE"])
 
 -- Options
-local microMenuSection = builder:CreateSection(L["OPTIONS_MICRO_MENU"])
-microMenuSection:AddCheckBox(L["MICRO_MENU_BORDER_ART"], "background")
-microMenuSection:AddCheckBox(L["MICRO_MENU_SHOW_PERFORMANCE_BAR"], "performanceBar")
-microMenuSection:AddSlider(L["MICRO_MENU_PADDING"], "padding",
-    { values = { min = -10, max = 10, step = 1 }, width = 150 })
+local microMenuSection = builder:CreateSection(L["OPTIONS_BUTTONS_BAR_SECTION"])
+microMenuSection:AddCheckBox(L["OPTIONS_BORDER_CHECKBOX"], "background")
+microMenuSection:AddCheckBox(L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"], "performanceBar")
+microMenuSection:AddText(L["OPTIONS_BUTTONS_TIP_VISIBILITY"], ns.builder.settings.text:NewSettings({
+    color = ns.builder.color(0.6, 0.6, 0.6),
+    size = 10,
+}, microMenuSection.anchor))
 
 local function createButton(builder, parent, index)
     local button = CreateFrame("Button", nil, builder.optionsPanel, "MainMenuBarMicroButton")
@@ -115,6 +117,7 @@ local function createMicroMenuButton(index, data)
     setFetch(button)
 
     microMenuSection:AddFetch(button)
+    return button
 end
 
 local sortedMicroButtons = {}
@@ -122,15 +125,20 @@ for _, data in pairs(enums.MicroButtons) do
     sortedMicroButtons[data.position] = data
 end
 
+local lastButton
 for index, data in ipairs(sortedMicroButtons) do
-    createMicroMenuButton(index, data)
+    lastButton = createMicroMenuButton(index, data)
 end
 
-local scaleSection = builder:CreateSection(L["LKEY_OPTIONS_SCALE_TITLE"],
+microMenuSection:setAnchor(lastButton)
+
+local scaleSection = builder:CreateSection(L["OPTIONS_SCALE_PADDING_SECTION"],
     microMenuSection.anchor,
-    ns.builder.offset(0, -60))
-scaleSection:AddSlider(L["LKEY_OPTIONS_SCALE_SLIDER"], "scale",
+    ns.builder.offset(0, -10))
+scaleSection:AddSlider(L["OPTIONS_SCALE_SLIDER"], "scale",
     { values = { min = 0.6, max = 2, step = 0.1 }, width = 150 })
+scaleSection:AddSlider(L["OPTIONS_PADDING_SLIDER"], "padding",
+    { values = { min = -10, max = 10, step = 1 }, width = 150 })
 
 -- Register
 builder:Register()

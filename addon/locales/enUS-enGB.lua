@@ -3,7 +3,7 @@ local L = ns.L
 
 L["NAME"] = "Micro Menu Edit"
 
-L["OPTIONS_TITLE"] = "Micro Menu Edit Settings"
+L["OPTIONS_TITLE"] = "Micro Menu Settings"
 
 L["OPTIONS_BUTTONS_BAR_SECTION"] = "Buttons Bar"
 L["OPTIONS_BORDER_CHECKBOX"] = "Show border"
