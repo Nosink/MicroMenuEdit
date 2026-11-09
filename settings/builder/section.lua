@@ -19,8 +19,9 @@ function section:AddFetch(fetch)
     self.fetchs[#self.fetchs + 1] = fetch
 end
 
-function section:AddCheckBox(text, key, params)
-    local anchor, checkBox = ns.builder.CreateCheckBox(self, text, key, params)
+function section:AddCheckBox(text, key, settings)
+    if not settings then settings = ns.builder.settings.checkBox:NewSettings({}, self.anchor) end
+    local anchor, checkBox = ns.builder.CreateCheckBox(self, text, key, settings)
     self:setAnchor(anchor)
     return self:addControl(checkBox)
 end

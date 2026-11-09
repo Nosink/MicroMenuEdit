@@ -1,7 +1,7 @@
 local name, ns = ...
 
 local function createEditBox(section, settings)
-    local editBox = CreateFrame("EditBox", nil, section.optionsPanel, "InputBoxTemplate")
+    local editBox = CreateFrame(settings.frameType, nil, section.optionsPanel, settings.template)
     editBox:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
         settings.point.y)
     return editBox
@@ -15,7 +15,7 @@ local function setNumeric(editBox, settings)
 end
 
 local function setSize(editBox, settings)
-    editBox:SetAutoFocus(false)
+    editBox:SetAutoFocus(settings.autoFocus)
     editBox:SetJustifyH(settings.justify.h)
     editBox:SetSize(settings.width, settings.height)
 end

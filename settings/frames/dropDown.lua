@@ -1,7 +1,7 @@
 local name, ns = ...
 
 local function createDropDown(section, settings)
-    local dropDown = CreateFrame("Frame", nil, section.optionsPanel, "UIDropDownMenuTemplate")
+    local dropDown = CreateFrame("Frame", nil, section.optionsPanel, settings.template)
     dropDown:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
         settings.point.y)
     return dropDown

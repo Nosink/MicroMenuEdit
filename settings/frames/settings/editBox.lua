@@ -23,6 +23,9 @@ function settings:NewSettings(settings, anchor)
         height = settings.height or 22,
         point = settings.point or nil,
         justify = settings.justify or builder.justify("CENTER"),
+        template = "InputBoxTemplate",
+        frameType = "EditBox",
+        autoFocus = settings.autoFocus or false,
 
         SetLabel = function(self, label)
             self.point = builder.point("LEFT", label, "RIGHT", self.offset.x, self.offset.y)
