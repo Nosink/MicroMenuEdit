@@ -1,5 +1,7 @@
 local name, ns = ...
 
+local L = ns.L
+
 function ns.builder:CreateOptionsPanel()
     local optionsPanel = CreateFrame("Frame", name .. "OptionsPanel", UIParent)
     optionsPanel.name = name
@@ -80,7 +82,7 @@ end
 
 function ns.builder:Register()
     if Settings and Settings.RegisterCanvasLayoutCategory and Settings.RegisterAddOnCategory then
-        ns.settingsCategory = Settings.RegisterCanvasLayoutCategory(self.optionsPanel, name)
+        ns.settingsCategory = Settings.RegisterCanvasLayoutCategory(self.optionsPanel, L["NAME"])
         Settings.RegisterAddOnCategory(ns.settingsCategory)
     end
 end
