@@ -19,7 +19,11 @@ function settings:NewSettings(settings, anchor)
         size = settings.size or 12,
         width = settings.width or nil,
         flags = settings.flags or "",
-        justify = settings.justify or builder.justify()
+        justify = settings.justify or builder.justify(),
+
+        SetAnchor = function(self, anchor)
+            self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)
+        end
     }, self)
 end
 

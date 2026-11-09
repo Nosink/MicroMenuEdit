@@ -54,7 +54,7 @@ end
 
 function ns.builder.CreateEditBox(section, text, key, settings)
     local _, label = ns.builder.CreateText(section, text, settings.textSettings)
-    settings:SetLabel(label)
+    settings:SetAnchor(label)
 
     local editBox = createEditBox(section, settings)
     setNumeric(editBox, settings)

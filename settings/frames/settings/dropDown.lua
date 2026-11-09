@@ -20,8 +20,8 @@ function settings:NewSettings(settings, anchor)
         point = settings.point or nil,
         template = "UIDropDownMenuTemplate",
 
-        SetLabel = function(self, label)
-            self.point = builder.point("LEFT", label, "RIGHT", self.offset.x, self.offset.y)
+        SetAnchor = function(self, anchor)
+            self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)
         end
     }, self)
 end

@@ -27,8 +27,8 @@ function settings:NewSettings(settings, anchor)
         frameType = "EditBox",
         autoFocus = settings.autoFocus or false,
 
-        SetLabel = function(self, label)
-            self.point = builder.point("LEFT", label, "RIGHT", self.offset.x, self.offset.y)
+        SetAnchor = function(self, anchor)
+            self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)
         end
     }, self)
 end

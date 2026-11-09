@@ -30,3 +30,8 @@ function ns.builder.CreateText(section, text, settings)
 
     return label, label
 end
+
+function ns.builder.ConfigureText(label, text, settings)
+    setWidth(label, settings)
+    setText(label, text, settings)
+end

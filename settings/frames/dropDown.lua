@@ -77,7 +77,7 @@ end
 
 function ns.builder.CreateDropDown(section, text, key, options, settings)
     local _, label = ns.builder.CreateText(section, text, settings.textSettings)
-    settings:SetLabel(label)
+    settings:SetAnchor(label)
 
     local dropDown = createDropDown(section, settings)
     setWidth(dropDown, settings)
