@@ -15,14 +15,11 @@ builder:CreateTitle(L["OPTIONS_TITLE"])
 local microMenuSection = builder:CreateSection(L["OPTIONS_BUTTONS_BAR_SECTION"])
 microMenuSection:AddCheckBox(L["OPTIONS_BORDER_CHECKBOX"], "background")
 microMenuSection:AddCheckBox(L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"], "performanceBar")
-microMenuSection:AddText(L["OPTIONS_BUTTONS_TIP_VISIBILITY"], ns.builder.settings.text:NewSettings({
-    color = ns.builder.color(0.6, 0.6, 0.6),
-    size = 10,
-}, microMenuSection.anchor))
+local anchor = microMenuSection.anchor
 
 local function createButton(builder, parent, index)
     local button = CreateFrame("Button", nil, builder.optionsPanel, "MainMenuBarMicroButton")
-    button:SetPoint("TOPLEFT", parent.anchor, "BOTTOMLEFT", (index - 1) * 31, -10)
+    button:SetPoint("TOPLEFT", parent.anchor, "BOTTOMLEFT", (index - 1) * 31, 0)
     return button
 end
 
@@ -131,10 +128,15 @@ for index, data in ipairs(sortedMicroButtons) do
 end
 
 microMenuSection:setAnchor(lastButton)
+microMenuSection:AddText(L["OPTIONS_BUTTONS_TIP_VISIBILITY"], ns.builder.settings.text:NewSettings({
+    color = ns.builder.color(0.6, 0.6, 0.6),
+    offset = ns.builder.offset(10, -40),
+    size = 10,
+}, anchor))
 
 local scaleSection = builder:CreateSection(L["OPTIONS_SCALE_PADDING_SECTION"],
-    microMenuSection.anchor,
-    ns.builder.offset(0, -10))
+    anchor,
+    ns.builder.offset(0, -60))
 scaleSection:AddSlider(L["OPTIONS_SCALE_SLIDER"], "scale",
     { values = { min = 0.6, max = 2, step = 0.1 }, width = 150 })
 scaleSection:AddSlider(L["OPTIONS_PADDING_SLIDER"], "padding",

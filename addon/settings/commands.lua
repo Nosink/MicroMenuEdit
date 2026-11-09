@@ -7,10 +7,24 @@ SLASH_MICROMENUEDIT1 = "/micromenuedit"
 SLASH_MICROMENUEDIT2 = "/mme"
 
 local function openSettings()
-    if Settings and Settings.OpenToCategory and ns.settingsCategory then
-        Settings.OpenToCategory(ns.settingsCategory:GetID())
+    if not Settings or not Settings.OpenToCategory or not ns.settingsCategory then
+        return
     end
+
+    if InCombatLockdown() then
+        ns.settingsOpenPending = true
+        return
+    end
+
+    Settings.OpenToCategory(ns.settingsCategory:GetID())
 end
+
+ns.bus:RegisterEvent("PLAYER_REGEN_ENABLED", function()
+    if ns.settingsOpenPending then
+        ns.settingsOpenPending = nil
+        openSettings()
+    end
+end)
 
 local function displayCommandHelp()
     print(string.format(

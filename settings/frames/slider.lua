@@ -120,9 +120,10 @@ end
 
 function ns.builder.CreateSlider(section, text, key, settings)
     --
-    local textSettings = ns.builder.settings.text:NewSettings({
-        offset = { x = 0, y = -8 }
-    }, section.anchor)
+    local textSettings = settings.textSettings or
+        ns.builder.settings.text:NewSettings({
+            offset = { x = 0, y = -8 }
+        }, section.anchor)
 
     local _, frame = ns.builder.CreateText(section, text, textSettings)
     label = frame
