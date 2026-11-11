@@ -20,8 +20,9 @@ function settings:NewSettings(settings, anchor)
         textSettings = settings.textSettings or textSettings,
         offset = offset,
         point = settings.point or point,
-        frameType = "CheckButton",
-        template = "InterfaceOptionsCheckButtonTemplate",
+        frameType = settings.frameType or "CheckButton",
+        onValueChanged = settings.onValueChanged or function(_) end,
+        template = settings.template or "InterfaceOptionsCheckButtonTemplate",
 
         SetAnchor = function(self, anchor)
             self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)

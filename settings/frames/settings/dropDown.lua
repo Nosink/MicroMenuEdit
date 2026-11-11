@@ -18,7 +18,8 @@ function settings:NewSettings(settings, anchor)
         offset = settings.offset or builder.offset(6, -2),
         width = settings.width or 50,
         point = settings.point or nil,
-        template = "UIDropDownMenuTemplate",
+        template = settings.template or "UIDropDownMenuTemplate",
+        onValueChanged = settings.onValueChanged or function(_) end,
 
         SetAnchor = function(self, anchor)
             self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)

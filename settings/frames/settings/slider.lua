@@ -38,6 +38,7 @@ function settings:NewSettings(settings, anchor)
         offset = settings.offset or builder.offset(10),
         point = settings.point,
         editBoxSettings = settings.editBoxSettings or editBoxSettings,
+        onValueChanged = settings.onValueChanged or function(_) end,
         values = {
             min = min,
             max = max,
@@ -45,11 +46,11 @@ function settings:NewSettings(settings, anchor)
             obeyStepOnDrag = obeyStepOnDrag,
         },
         width = settings.width or 100,
-        frameType = "Slider",
-        template = "OptionsSliderTemplate",
+        frameType = settings.frameType or "Slider",
+        template = settings.template or "OptionsSliderTemplate",
 
         SetAnchor = function(self, anchor)
-            self.point = builder.point("TOPLEFT", anchor, "BOTTOMLEFT", self.offset.x, self.offset.y)
+            self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)
         end
     }, self)
 end

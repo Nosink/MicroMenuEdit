@@ -1,31 +1,36 @@
 local name, ns = ...
 
+local function setSettings(slider, settings)
+    slider.settings = settings
+end
+
 local function createSlider(section, settings)
     local slider = CreateFrame(settings.frameType, nil, section.optionsPanel, settings.template)
     slider:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
         settings.point.y)
+    setSettings(slider, settings)
     return slider
 end
 
-local function setValues(slider, settings)
-    slider:SetMinMaxValues(settings.values.min, settings.values.max)
-    slider:SetValueStep(settings.values.step)
-    slider:SetObeyStepOnDrag(settings.values.obeyStepOnDrag)
+local function setValues(slider)
+    slider:SetMinMaxValues(slider.settings.values.min, slider.settings.values.max)
+    slider:SetValueStep(slider.settings.values.step)
+    slider:SetObeyStepOnDrag(slider.settings.values.obeyStepOnDrag)
 end
 
-local function setValuesText(slider, settings)
-    slider.Low:SetText(tostring(settings.values.min))
-    slider.High:SetText(tostring(settings.values.max))
+local function setValuesText(slider)
+    slider.Low:SetText(tostring(slider.settings.values.min))
+    slider.High:SetText(tostring(slider.settings.values.max))
 end
 
-local function setWidth(slider, settings)
-    slider:SetWidth(settings.width)
+local function setWidth(slider)
+    slider:SetWidth(slider.settings.width)
 end
 
 local function setEvents(slider, key)
     slider:SetScript("OnValueChanged", function(self, value)
         ns.db[key] = value
-        self:SetEditBoxText(value)
+        if (self.settings.onValueChanged) then self.settings.onValueChanged(value) end
         ns.bus:TriggerEvent(name .. "_SETTINGS_CHANGED", key)
     end)
 end
@@ -62,22 +67,22 @@ function ns.builder.CreateSlider(section, text, key, settings)
     settings:SetAnchor(label)
 
     local slider = createSlider(section, settings)
-    setValues(slider, settings)
-    setValuesText(slider, settings)
-    setWidth(slider, settings)
+    setValues(slider)
+    setValuesText(slider)
+    setWidth(slider)
     setEvents(slider, key)
     setFetch(slider, key)
 
-    settings.editBoxSettings:SetAnchor(slider)
-    settings.editBoxSettings:SetOnValueChanged(function(text)
-        local value = tonumber(text)
-        ns.db[key] = value
-        slider:SetValue(value)
-        return true
-    end)
+    --settings.editBoxSettings:SetOnValueChanged(function(text)
+    --    local value = tonumber(text)
+    --    ns.db[key] = value
+    --    slider:SetValue(value)
+    --    return true
+    --end)
 
-    local editBox = ns.builder.CreateEditBox(section, key, key, settings.editBoxSettings)
-    linkEditBoxToSlider(slider, editBox)
+    --settings.editBoxSettings:SetAnchor(slider)
+    --local editBox = ns.builder.CreateEditBox(section, "EL TEXTO DEL EDTIBOX?", key, settings.editBoxSettings)
+    --linkEditBoxToSlider(slider, editBox)
 
     return label, slider
 end
