@@ -137,9 +137,15 @@ local scaleSection = builder:CreateSection(L["OPTIONS_SCALE_PADDING_SECTION"],
     anchor,
     ns.builder.offset(0, -60))
 scaleSection:AddSlider(L["OPTIONS_SCALE_SLIDER"], "scale",
-    { values = { min = 0.6, max = 2, step = 0.1 }, width = 150 })
+    ns.builder.settings.slider:NewSettings({
+        values = { min = 0.6, max = 2, step = 0.1 },
+        width = 150
+    }, scaleSection.anchor))
 scaleSection:AddSlider(L["OPTIONS_PADDING_SLIDER"], "padding",
-    { values = { min = -10, max = 10, step = 1 }, width = 150 })
+    ns.builder.settings.slider:NewSettings({
+        values = { min = -10, max = 10, step = 1 },
+        width = 150
+    }, scaleSection.anchor))
 
 -- Register
 builder:Register()

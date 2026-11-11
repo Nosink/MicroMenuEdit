@@ -27,15 +27,11 @@ end
 
 function ns.builder.CreateCheckBox(section, text, key, settings)
     local checkBox = createCheckBox(section, settings)
-    settings.textSettings:SetAnchor(checkBox)
-
     setOnClick(checkBox, key)
     setFetch(checkBox, key)
 
-
-    local _, label = ns.builder.CreateText(section, text, settings.textSettings)
-    settings:SetAnchor(label)
-    --ns.builder.ConfigureText(checkBox.Text, text, settings.textSettings)
+    settings.textSettings:SetAnchor(checkBox)
+    ns.builder.CreateText(section, text, settings.textSettings)
 
     return checkBox, checkBox
 end

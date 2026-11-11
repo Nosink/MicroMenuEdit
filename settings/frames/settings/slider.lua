@@ -18,6 +18,10 @@ function settings:NewSettings(settings, anchor)
     local min = values.min or 0
     local max = values.max or 100
     local step = values.step or 1
+    local obeyStepOnDrag = values.obeyStepOnDrag or true
+
+    local offset = settings.offset or builder.offset(10)
+    local point = settings.point or builder.point("TOPLEFT", anchor, "BOTTOMLEFT", offset.x, offset.y)
 
     local editBoxSettings =
         ns.builder.settings.editBox:NewSettings({
@@ -38,14 +42,14 @@ function settings:NewSettings(settings, anchor)
             min = min,
             max = max,
             step = step,
-            obeyStepOnDrag = settings.values and settings.values.obeyStepOnDrag or true,
+            obeyStepOnDrag = obeyStepOnDrag,
         },
         width = settings.width or 100,
         frameType = "Slider",
         template = "OptionsSliderTemplate",
 
         SetAnchor = function(self, anchor)
-            self.editBoxSettings:SetAnchor(anchor)
+            self.point = builder.point("TOPLEFT", anchor, "BOTTOMLEFT", self.offset.x, self.offset.y)
         end
     }, self)
 end

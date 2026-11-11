@@ -68,13 +68,15 @@ function ns.builder.CreateSlider(section, text, key, settings)
     setEvents(slider, key)
     setFetch(slider, key)
 
-    settings:SetAnchor(slider)
-    local editBox = ns.builder.CreateEditBoxFrame(section, key, settings.editBoxSettings, function(text)
+    settings.editBoxSettings:SetAnchor(slider)
+    settings.editBoxSettings:SetOnValueChanged(function(text)
         local value = tonumber(text)
         ns.db[key] = value
         slider:SetValue(value)
         return true
     end)
+
+    local editBox = ns.builder.CreateEditBox(section, key, key, settings.editBoxSettings)
     linkEditBoxToSlider(slider, editBox)
 
     return label, slider
