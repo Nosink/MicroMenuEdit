@@ -8,7 +8,7 @@ settings.__index = settings
 function settings:NewSettings(settings, anchor)
     settings = settings or {}
 
-    local textSettings = settings.textSettings or
+    local textSettings =
         ns.builder.settings.text:NewSettings({
             offset = { x = 0, y = -10 }
         }, anchor)
@@ -26,9 +26,14 @@ function settings:NewSettings(settings, anchor)
         template = "InputBoxTemplate",
         frameType = "EditBox",
         autoFocus = settings.autoFocus or false,
+        onValueChanged = settings.onValueChanged or nil,
 
         SetAnchor = function(self, anchor)
             self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)
+        end,
+
+        SetOnValueChanged = function(self, onValueChanged)
+            self.onValueChanged = onValueChanged
         end
     }, self)
 end

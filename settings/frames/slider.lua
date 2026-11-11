@@ -1,45 +1,28 @@
 local name, ns = ...
 
-local label = {}
-local slider = {}
-local editBox = {}
-
 local function createSlider(section, settings)
-    local offset = settings and settings.offset or
-        ns.builder.offset(10, 0)
-    local point = settings and settings.point or
-        ns.builder.point("LEFT", label, "RIGHT", offset.x, offset.y)
-
-    slider = CreateFrame("Slider", nil, section.optionsPanel, "OptionsSliderTemplate")
-    slider:SetPoint(point.point, point.relativeTo, point.relativePoint, point.x, point.y)
+    local slider = CreateFrame(settings.frameType, nil, section.optionsPanel, settings.template)
+    slider:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
+        settings.point.y)
+    return slider
 end
 
-local function setValues(settings)
-    local minValue = settings and settings.values and settings.values.min or
-        0
-    local maxValue = settings and settings.values and settings.values.max or
-        100
-    local valueStep = settings and settings.values and settings.values.step or
-        1
-    local obeyStepOnDrag = settings and settings.values and settings.values.obeyStepOnDrag or
-        true
-
-    slider:SetMinMaxValues(minValue, maxValue)
-    slider:SetValueStep(valueStep)
-    slider:SetObeyStepOnDrag(obeyStepOnDrag)
-
-    slider.Low:SetText(tostring(minValue))
-    slider.High:SetText(tostring(maxValue))
+local function setValues(slider, settings)
+    slider:SetMinMaxValues(settings.values.min, settings.values.max)
+    slider:SetValueStep(settings.values.step)
+    slider:SetObeyStepOnDrag(settings.values.obeyStepOnDrag)
 end
 
-local function setWidth(settings)
-    local width = settings and settings.width or
-        100
-
-    slider:SetWidth(width)
+local function setValuesText(slider, settings)
+    slider.Low:SetText(tostring(settings.values.min))
+    slider.High:SetText(tostring(settings.values.max))
 end
 
-local function setEvents(key)
+local function setWidth(slider, settings)
+    slider:SetWidth(settings.width)
+end
+
+local function setEvents(slider, key)
     slider:SetScript("OnValueChanged", function(self, value)
         ns.db[key] = value
         self:SetEditBoxText(value)
@@ -47,7 +30,7 @@ local function setEvents(key)
     end)
 end
 
-local function setFetch(key)
+local function setFetch(slider, key)
     slider.Fetch = function(self)
         local value = ns.db[key]
         self:SetValue(value)
@@ -55,51 +38,7 @@ local function setFetch(key)
     end
 end
 
-local function createEditBox(section, settings)
-    local point = settings and settings.editBoxPoint or
-        ns.builder.point("LEFT", slider, "RIGHT", 10, 0)
-
-    editBox = CreateFrame("EditBox", nil, section.optionsPanel, "InputBoxTemplate")
-    editBox:SetPoint(point.point, point.relativeTo, point.relativePoint, point.x, point.y)
-end
-
-local function setEditBoxParams()
-    editBox:SetAutoFocus(false)
-    editBox:SetJustifyH("CENTER")
-    editBox:SetNumeric(true)
-    editBox:SetNumericFullRange(true)
-    editBox:SetSize(45, 22)
-end
-
-local function setEditorBoxValidator(settings)
-    local minValue, maxValue = slider:GetMinMaxValues()
-    local validator = settings and settings.validator or
-        ns.builder.inRangeValidator(minValue, maxValue)
-
-    editBox.validator = validator
-end
-
-local function setEditBoxEvents(key)
-    ns.bus:HookScript(editBox, "OnShow", function(self)
-        self:SetCursorPosition(0)
-    end)
-
-    editBox:SetScript("OnEditFocusLost", function(self)
-        local text = self:GetText()
-        if not self.validator.validate(text) then
-            text = self.validator.normalize(text)
-            self.slider:SetEditBoxText(text)
-        end
-        local value = tonumber(text)
-        self:SetSliderValue(value)
-    end)
-
-    editBox:SetScript("OnEnterPressed", function(self)
-        self:ClearFocus()
-    end)
-end
-
-local function linkEditBoxToSlider()
+local function linkEditBoxToSlider(slider, editBox)
     slider.editBox = editBox
     slider.SetEditBoxText = function(self, value)
         local step = self:GetValueStep()
@@ -119,27 +58,24 @@ local function linkEditBoxToSlider()
 end
 
 function ns.builder.CreateSlider(section, text, key, settings)
-    --
-    local textSettings = settings.textSettings or
-        ns.builder.settings.text:NewSettings({
-            offset = { x = 0, y = -8 }
-        }, section.anchor)
+    local _, label = ns.builder.CreateText(section, text, settings.textSettings)
+    settings:SetAnchor(label)
 
-    local _, frame = ns.builder.CreateText(section, text, textSettings)
-    label = frame
+    local slider = createSlider(section, settings)
+    setValues(slider, settings)
+    setValuesText(slider, settings)
+    setWidth(slider, settings)
+    setEvents(slider, key)
+    setFetch(slider, key)
 
-    createSlider(section, settings)
-    setValues(settings)
-    setWidth(settings)
-    setEvents(key)
-    setFetch(key)
-
-    createEditBox(section, settings)
-    setEditBoxParams()
-    setEditorBoxValidator(settings)
-    setEditBoxEvents(key)
-
-    linkEditBoxToSlider()
+    settings:SetAnchor(slider)
+    local editBox = ns.builder.CreateEditBoxFrame(section, key, settings.editBoxSettings, function(text)
+        local value = tonumber(text)
+        ns.db[key] = value
+        slider:SetValue(value)
+        return true
+    end)
+    linkEditBoxToSlider(slider, editBox)
 
     return label, slider
 end

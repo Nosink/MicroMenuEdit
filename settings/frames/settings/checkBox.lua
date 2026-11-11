@@ -11,7 +11,7 @@ function settings:NewSettings(settings, anchor)
     local offset = settings.offset or builder.offset()
     local point = builder.point("TOPLEFT", anchor, "BOTTOMLEFT", offset.x, offset.y)
 
-    local textSettings = settings.textSettings or
+    local textSettings =
         ns.builder.settings.text:NewSettings({
             point = builder.point("LEFT", anchor, "RIGHT", 4, 0),
         }, anchor)

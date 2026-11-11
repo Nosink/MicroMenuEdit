@@ -24,7 +24,7 @@ local function setValidator(editBox, settings)
     editBox.validator = settings.validator
 end
 
-local function setEvents(editBox, key)
+local function setEvents(editBox, key, settings)
     ns.bus:HookScript(editBox, "OnShow", function(self)
         self:SetCursorPosition(0)
     end)
@@ -33,9 +33,10 @@ local function setEvents(editBox, key)
         local text = self:GetText()
         if not self.validator.validate(text) then
             text = self.validator.normalize(text)
-            self:SetText(text)
         end
+        self:SetText(text)
         ns.db[key] = text
+        if settings.onValueChanged and settings.onValueChanged(text) then return end
         ns.bus:TriggerEvent(name .. "_SETTINGS_CHANGED", key)
     end)
 
@@ -60,7 +61,7 @@ function ns.builder.CreateEditBox(section, text, key, settings)
     setNumeric(editBox, settings)
     setSize(editBox, settings)
     setValidator(editBox, settings)
-    setEvents(editBox, key)
+    setEvents(editBox, key, settings)
     setFetch(editBox, key)
 
     return label, editBox

@@ -127,7 +127,6 @@ for index, data in ipairs(sortedMicroButtons) do
     lastButton = createMicroMenuButton(index, data)
 end
 
-microMenuSection:setAnchor(lastButton)
 microMenuSection:AddText(L["OPTIONS_BUTTONS_TIP_VISIBILITY"], ns.builder.settings.text:NewSettings({
     color = ns.builder.color(0.6, 0.6, 0.6),
     offset = ns.builder.offset(10, -40),
