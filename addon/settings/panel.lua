@@ -30,8 +30,8 @@ local function setData(button, data)
 end
 
 local function updatePortrait(button)
+    SetPortraitTexture(button.portrait, "player", true)
     if button.portrait then
-        SetPortraitTexture(button.portrait, "player", true)
         button.portrait:Show()
     end
 end
@@ -39,14 +39,14 @@ end
 local function setTextures(button)
     if button.textureName == "Portrait" then
         button.portrait = button:CreateTexture(nil, "OVERLAY")
-        button.portrait:SetAlpha(1.0)
         button.portrait:SetPoint("CENTER", button, "CENTER")
-        button.portrait:SetSize(24, 24)
-        button.portraitMask = button:CreateMaskTexture()
-        button.portraitMask:SetPoint("CENTER", button, "CENTER")
-        button.portraitMask:SetSize(31, 40)
-        button.portraitMask:SetTexture("Interface\\Buttons\\UI-Panel-Button-Up")
-        button.portrait:AddMaskTexture(button.portraitMask)
+        button.portrait:SetSize(32, 32)
+        button.mask = button:CreateMaskTexture()
+        button.mask:SetPoint("TOPLEFT", button.portrait, "TOPLEFT", 6, -2)
+        button.mask:SetPoint("BOTTOMRIGHT", button.portrait, "BOTTOMRIGHT", -6, 2)
+        button.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE",
+            "CLAMPTOBLACKADDITIVE")
+        button.portrait:AddMaskTexture(button.mask)
         updatePortrait(button)
     else
         LoadMicroButtonTextures(button, button.textureName)
