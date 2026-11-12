@@ -18,7 +18,10 @@ function ns.builder.inRangeValidator(min, max)
             if not number then return tostring(min) end
             if number < min then return tostring(min) end
             if number > max then return tostring(max) end
-            return tostring(number)
+            local result = string.format("%.2f", number)
+            result = result:gsub("0+$", "")
+            result = result:gsub("%.$", "")
+            return result
         end
     }
 end

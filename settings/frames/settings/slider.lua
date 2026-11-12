@@ -8,9 +8,12 @@ settings.__index = settings
 function settings:NewSettings(settings, anchor)
     settings = settings or {}
 
+    local offset = settings.offset or builder.offset(0, -24)
+
     local textSettings =
         ns.builder.settings.text:NewSettings({
-            offset = { x = 0, y = -8 }
+            offset = offset,
+            width = 150,
         }, anchor)
 
     local values = settings.values or {}
@@ -20,13 +23,12 @@ function settings:NewSettings(settings, anchor)
     local step = values.step or 1
     local obeyStepOnDrag = values.obeyStepOnDrag or true
 
-    local offset = settings.offset or builder.offset(10)
-    local point = settings.point or builder.point("TOPLEFT", anchor, "BOTTOMLEFT", offset.x, offset.y)
-
     local editBoxSettings =
         ns.builder.settings.editBox:NewSettings({
-            allowDecimals = step < 1,
-            isNumeric = true,
+            textSettings = ns.builder.settings.text:NewSettings({
+                offset = builder.offset(16, 0)
+            }, anchor),
+            isNumeric = false,
             validator = ns.builder.inRangeValidator(min, max),
             width = 45,
             height = 22,
@@ -35,8 +37,8 @@ function settings:NewSettings(settings, anchor)
 
     return setmetatable({
         textSettings = settings.textSettings or textSettings,
-        offset = settings.offset or builder.offset(10),
-        point = settings.point,
+        offset = offset,
+        point = nil,
         editBoxSettings = settings.editBoxSettings or editBoxSettings,
         onValueChanged = settings.onValueChanged or function(_) end,
         values = {
@@ -50,7 +52,8 @@ function settings:NewSettings(settings, anchor)
         template = settings.template or "OptionsSliderTemplate",
 
         SetAnchor = function(self, anchor)
-            self.point = builder.point("LEFT", anchor, "RIGHT", self.offset.x, self.offset.y)
+            local offset = builder.offset(12, 0)
+            self.point = builder.point("LEFT", anchor, "RIGHT", offset.x, offset.y)
         end
     }, self)
 end
