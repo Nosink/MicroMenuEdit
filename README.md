@@ -1,4 +1,4 @@
-# MicroMenuEdit
+# Micro Menu Edit
 
 Customize the micro menu buttons, border, performance bar, scale, and padding.
 
