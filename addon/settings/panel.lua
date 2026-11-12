@@ -65,7 +65,7 @@ local function setEvents(button)
 
     button:SetScript("OnEnter", function(self)
         GameTooltip:SetOwner(self, "ANCHOR_TOP")
-        GameTooltip:SetText(tostring(self.tooltip))
+        GameTooltip:SetText(tostring(L[self.tooltip]))
         GameTooltip:Show()
     end)
 
