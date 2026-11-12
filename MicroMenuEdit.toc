@@ -1,5 +1,5 @@
 
-## Title: Micro Menu |cFFFF6969Edit|r
+## Title: MicroMenu |cFFFF6969Edit|r
 
 ## Interface:  16001
 ## Category: Interface
@@ -22,6 +22,8 @@
 
 ## SavedVariables: MicroMenuEditDB
 ## SavedVariablesPerCharacter: MicroMenuEditPCDB
+
+## X-Build: MicroMenuEdit
 
 # _CORE
 core.xml
