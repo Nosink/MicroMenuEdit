@@ -33,37 +33,21 @@ local function setEvents(slider, key)
         if (self.settings.onValueChanged) then self.settings.onValueChanged(value) end
         ns.bus:TriggerEvent(name .. "_SETTINGS_CHANGED", key)
     end)
+
+    slider:EnableMouseWheel(true)
+
+    slider:SetScript("OnMouseWheel", function(self, delta)
+        local value = self:GetValue()
+        local step = self:GetValueStep()
+        self:SetValue(value + (delta * step))
+    end)
 end
 
 local function setFetch(slider, key)
     slider.Fetch = function(self)
         local value = ns.db[key]
         self:SetValue(value)
-        self.editBox:Fetch()
     end
-end
-
-local function linkEditBoxToSlider(slider, editBox)
-    slider.editBox = editBox
-    slider.SetEditBoxText = function(self, value)
-        local step = self:GetValueStep()
-        local stepText = tostring(step)
-        local decimalPoint = stepText:find("%.")
-
-        if (decimalPoint) then
-            value = string.format("%." .. decimalPoint .. "f", value)
-        end
-        self.editBox:SetText(value)
-    end
-
-    editBox.slider = slider
-    editBox.SetSliderValue = function(self, value)
-        self.slider:SetValue(value)
-    end
-end
-
-local function setEditBox(slider, editBox)
-    slider.editBox = editBox
 end
 
 function ns.builder.CreateSlider(section, text, key, settings)
@@ -78,19 +62,9 @@ function ns.builder.CreateSlider(section, text, key, settings)
     setEvents(slider, key)
     setFetch(slider, key)
 
-    --settings.editBoxSettings:SetOnValueChanged(function(text)
-    --    local value = tonumber(text)
-    --    ns.db[key] = value
-    --    slider:SetValue(value)
-    --    return true
-    --end)
-
-
-
     settings.editBoxSettings.textSettings:SetAnchor(slider)
     local _, editBox = ns.builder.CreateEditBox(section, "", key, settings.editBoxSettings)
-    setEditBox(slider, editBox)
-    --linkEditBoxToSlider(slider, editBox)
+    section:AddFetch(editBox)
 
     return label, slider
 end
