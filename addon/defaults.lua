@@ -1,10 +1,8 @@
 local _, ns = ...
 
 local defaults = {
-    microMenu           = true,
     padding             = 0,
 
-    notifications       = true,
     background          = true,
 
     characterInfo       = true,
