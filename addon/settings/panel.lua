@@ -42,9 +42,9 @@ local function setTextures(button)
         button.portrait:SetPoint("CENTER", button, "CENTER")
         button.portrait:SetSize(32, 32)
         button.mask = button:CreateMaskTexture()
-        button.mask:SetPoint("TOPLEFT", button.portrait, "TOPLEFT", 6, -2)
-        button.mask:SetPoint("BOTTOMRIGHT", button.portrait, "BOTTOMRIGHT", -6, 2)
-        button.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMask", "CLAMPTOBLACKADDITIVE",
+        button.mask:SetPoint("TOPLEFT", button.portrait, "TOPLEFT", 5, -3)
+        button.mask:SetPoint("BOTTOMRIGHT", button.portrait, "BOTTOMRIGHT", -5, 3)
+        button.mask:SetTexture("Interface/CHARACTERFRAME/TempPortraitAlphaMaskSmall", "CLAMPTOBLACKADDITIVE",
             "CLAMPTOBLACKADDITIVE")
         button.portrait:AddMaskTexture(button.mask)
         updatePortrait(button)
