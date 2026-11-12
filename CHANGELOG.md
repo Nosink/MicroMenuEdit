@@ -2,6 +2,9 @@
 
 ## [1.1.0] - 2026-11-12
 
+### Added
+- Color on the addon display menu.
+
 ### Changed
 
 - Updated the addon icon to a settings gear.
@@ -9,6 +12,7 @@
 
 ### Fixed
 
+- Addon display name
 - Fixed the character portrait texture in the settings preview.
 - Updated the portrait mask and sizing for a cleaner button icon.
 - Fixed localized tooltip text in the settings preview.
