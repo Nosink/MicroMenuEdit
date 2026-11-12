@@ -8,11 +8,11 @@ if ns.locale == "zhTW" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "微型選單"
     L["OPTIONS_BORDER_CHECKBOX"] = "顯示微型選單邊框"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "顯示效能列"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "縮放"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "縮放與間距"
     L["OPTIONS_SCALE_SLIDER"] = "微型選單縮放"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* 點擊切換顯示狀態"
+    L["OPTIONS_PADDING_SLIDER"] = "按鈕間距"
 
     L["COMMAND_USE"] = "使用"
     L["COMMAND_OR"] = "或"

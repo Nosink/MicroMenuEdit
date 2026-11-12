@@ -8,18 +8,18 @@ if ns.locale == "frFR" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Micromenu"
     L["OPTIONS_BORDER_CHECKBOX"] = "Afficher la bordure du micromenu"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "Afficher la barre de performance"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "Échelle"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "Échelle et espacement"
     L["OPTIONS_SCALE_SLIDER"] = "Échelle du micromenu"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Cliquez pour afficher ou masquer"
+    L["OPTIONS_PADDING_SLIDER"] = "Espacement des boutons"
 
     L["COMMAND_USE"] = "Utilisez"
     L["COMMAND_OR"] = "ou"
     L["COMMAND_DESCRIPTION"] = "pour ouvrir les paramètres"
     L["COMMAND_VERSION"] = "Version"
 
-    L["BUTTON_TOOLTIP_CHARACTER"] = "Personnage"
+    L["BUTTON_TOOLTIP_CHARACTER"] = "Informations du personnage"
     L["BUTTON_TOOLTIP_PROFESSIONS"] = "Métiers"
     L["BUTTON_TOOLTIP_SPELLBOOK"] = "Grimoire"
     L["BUTTON_TOOLTIP_TALENT"] = "Talents"

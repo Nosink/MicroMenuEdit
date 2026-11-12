@@ -8,18 +8,18 @@ if ns.locale == "ptBR" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Micromenu"
     L["OPTIONS_BORDER_CHECKBOX"] = "Mostrar borda do micromenu"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "Mostrar barra de desempenho"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "Escala"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "Escala e espaçamento"
     L["OPTIONS_SCALE_SLIDER"] = "Escala do micromenu"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Clique para alternar a visibilidade"
+    L["OPTIONS_PADDING_SLIDER"] = "Espaçamento dos botões"
 
     L["COMMAND_USE"] = "Use"
     L["COMMAND_OR"] = "ou"
     L["COMMAND_DESCRIPTION"] = "para abrir as configurações"
     L["COMMAND_VERSION"] = "Versão"
 
-    L["BUTTON_TOOLTIP_CHARACTER"] = "Personagem"
+    L["BUTTON_TOOLTIP_CHARACTER"] = "Informações do personagem"
     L["BUTTON_TOOLTIP_PROFESSIONS"] = "Profissões"
     L["BUTTON_TOOLTIP_SPELLBOOK"] = "Livro de feitiços"
     L["BUTTON_TOOLTIP_TALENT"] = "Talentos"

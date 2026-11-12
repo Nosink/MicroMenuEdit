@@ -4,22 +4,21 @@
 ## Interface:  16001
 ## Category: Interface
 
-## Notes: X
-## Notes-enGB: X
-## Notes-esES: X
-## Notes-esMX: X
-## Notes-ruRU: X
-## Notes-deDE: X
-## Notes-frFR: X
-## Notes-itIT: X
-## Notes-ptBR: X
-## Notes-koKR: X
-## Notes-zhCN: X
-## Notes-zhTW: X
+## Notes: Customize the micro menu buttons, border, performance bar, scale, and padding.
+## Notes-esES: Personaliza los botones, el borde, la barra de rendimiento, la escala y el espaciado del micromenú.
+## Notes-esMX: Personaliza los botones, el borde, la barra de rendimiento, la escala y el espaciado del micromenú.
+## Notes-ruRU: Настройте кнопки микроменю, рамку, панель производительности, масштаб и отступы.
+## Notes-deDE: Passe die Schaltflächen, den Rahmen, die Leistungsleiste, die Skalierung und die Abstände des Mikromenüs an.
+## Notes-frFR: Personnalisez les boutons, la bordure, la barre de performance, l’échelle et l’espacement du micromenu.
+## Notes-itIT: Personalizza i pulsanti, il bordo, la barra delle prestazioni, la scala e la spaziatura del micro-menu.
+## Notes-ptBR: Personalize os botões, a borda, a barra de desempenho, a escala e o espaçamento do micromenu.
+## Notes-koKR: 미니 메뉴 버튼, 테두리, 성능 표시줄, 크기 및 간격을 설정합니다.
+## Notes-zhCN: 自定义微型菜单按钮、边框、性能条、缩放和间距。
+## Notes-zhTW: 自訂微型選單按鈕、邊框、效能列、縮放與間距。
 
 ## Author: Nosink Ð
-## Version: 1.0.0
-## IconTexture: Interface\Icons\inv_misc_coin_01
+## Version: 1.1.0
+## IconTexture: Interface\Icons\inv_misc_gear_06
 
 ## SavedVariables: MicroMenuEditDB
 ## SavedVariablesPerCharacter: MicroMenuEditPCDB

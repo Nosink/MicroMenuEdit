@@ -8,11 +8,11 @@ if ns.locale == "zhCN" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "微型菜单"
     L["OPTIONS_BORDER_CHECKBOX"] = "显示微型菜单边框"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "显示性能条"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "缩放"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "缩放和间距"
     L["OPTIONS_SCALE_SLIDER"] = "微型菜单缩放"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* 点击切换显示状态"
+    L["OPTIONS_PADDING_SLIDER"] = "按钮间距"
 
     L["COMMAND_USE"] = "使用"
     L["COMMAND_OR"] = "或"

@@ -8,11 +8,11 @@ if ns.locale == "koKR" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "미니 메뉴"
     L["OPTIONS_BORDER_CHECKBOX"] = "미니 메뉴 테두리 표시"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "성능 표시줄 표시"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "크기"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "크기 및 간격"
     L["OPTIONS_SCALE_SLIDER"] = "미니 메뉴 크기"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* 클릭하여 표시 여부 전환"
+    L["OPTIONS_PADDING_SLIDER"] = "버튼 간격"
 
     L["COMMAND_USE"] = "사용"
     L["COMMAND_OR"] = "또는"

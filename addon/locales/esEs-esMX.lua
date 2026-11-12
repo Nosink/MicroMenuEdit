@@ -8,11 +8,11 @@ if ns.locale == "esES" or ns.locale == "esMX" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Micromenú"
     L["OPTIONS_BORDER_CHECKBOX"] = "Mostrar borde del micromenú"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "Mostrar barra de rendimiento"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "Escala"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "Escala y espaciado"
     L["OPTIONS_SCALE_SLIDER"] = "Escala del micromenú"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Haz clic para alternar la visibilidad"
+    L["OPTIONS_PADDING_SLIDER"] = "Espaciado de botones"
 
     L["COMMAND_USE"] = "Usa"
     L["COMMAND_OR"] = "o"

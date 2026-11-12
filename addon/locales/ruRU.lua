@@ -8,18 +8,18 @@ if ns.locale == "ruRU" then
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Микроменю"
     L["OPTIONS_BORDER_CHECKBOX"] = "Показывать рамку микроменю"
     L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "Показывать панель производительности"
-    L["OPTIONS_SCALE_PADDING_SECTION"] = "Масштаб"
+    L["OPTIONS_SCALE_PADDING_SECTION"] = "Масштаб и отступы"
     L["OPTIONS_SCALE_SLIDER"] = "Масштаб микроменю"
 
-    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
-    L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+    L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Нажмите, чтобы изменить видимость"
+    L["OPTIONS_PADDING_SLIDER"] = "Отступ между кнопками"
 
     L["COMMAND_USE"] = "Используйте"
     L["COMMAND_OR"] = "или"
     L["COMMAND_DESCRIPTION"] = "чтобы открыть настройки"
     L["COMMAND_VERSION"] = "Версия"
 
-    L["BUTTON_TOOLTIP_CHARACTER"] = "Персонаж"
+    L["BUTTON_TOOLTIP_CHARACTER"] = "Информация о персонаже"
     L["BUTTON_TOOLTIP_PROFESSIONS"] = "Профессии"
     L["BUTTON_TOOLTIP_SPELLBOOK"] = "Книга заклинаний"
     L["BUTTON_TOOLTIP_TALENT"] = "Таланты"

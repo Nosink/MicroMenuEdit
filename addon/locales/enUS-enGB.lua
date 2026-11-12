@@ -5,10 +5,10 @@ L["NAME"] = "Micro Menu Edit"
 
 L["OPTIONS_TITLE"] = "Micro Menu Settings"
 
-L["OPTIONS_BUTTONS_BAR_SECTION"] = "Buttons Bar"
+L["OPTIONS_BUTTONS_BAR_SECTION"] = "Button Bar"
 L["OPTIONS_BORDER_CHECKBOX"] = "Show border"
 L["OPTIONS_PERFORMANCE_BAR_CHECKBOX"] = "Show performance bar"
-L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visiblity"
+L["OPTIONS_BUTTONS_TIP_VISIBILITY"] = "* Click to toggle visibility"
 
 L["BUTTON_TOOLTIP_CHARACTER"] = "Character Info"
 L["BUTTON_TOOLTIP_PROFESSIONS"] = "Professions"
@@ -24,7 +24,7 @@ L["BUTTON_TOOLTIP_MAINMENU"] = "Game Menu"
 
 L["OPTIONS_SCALE_PADDING_SECTION"] = "Scale & Padding"
 L["OPTIONS_SCALE_SLIDER"] = "Overall scale"
-L["OPTIONS_PADDING_SLIDER"] = "Buttons padding"
+L["OPTIONS_PADDING_SLIDER"] = "Button spacing"
 
 L["COMMAND_USE"] = "Use"
 L["COMMAND_OR"] = "or"
