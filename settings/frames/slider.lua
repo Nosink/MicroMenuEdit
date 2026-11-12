@@ -1,15 +1,15 @@
 local name, ns = ...
 
-local function setSettings(slider, settings)
-    slider.settings = settings
-end
 
 local function createSlider(section, settings)
     local slider = CreateFrame(settings.frameType, nil, section.optionsPanel, settings.template)
     slider:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
         settings.point.y)
-    setSettings(slider, settings)
     return slider
+end
+
+local function setSettings(slider, settings)
+    slider.settings = settings
 end
 
 local function setValues(slider)
@@ -39,7 +39,7 @@ local function setFetch(slider, key)
     slider.Fetch = function(self)
         local value = ns.db[key]
         self:SetValue(value)
-        self:SetEditBoxText(value)
+        self.editBox:Fetch()
     end
 end
 
@@ -62,11 +62,16 @@ local function linkEditBoxToSlider(slider, editBox)
     end
 end
 
+local function setEditBox(slider, editBox)
+    slider.editBox = editBox
+end
+
 function ns.builder.CreateSlider(section, text, key, settings)
     local _, label = ns.builder.CreateText(section, text, settings.textSettings)
     settings:SetAnchor(label)
 
     local slider = createSlider(section, settings)
+    setSettings(slider, settings)
     setValues(slider)
     setValuesText(slider)
     setWidth(slider)
@@ -80,8 +85,11 @@ function ns.builder.CreateSlider(section, text, key, settings)
     --    return true
     --end)
 
-    --settings.editBoxSettings:SetAnchor(slider)
-    --local editBox = ns.builder.CreateEditBox(section, "EL TEXTO DEL EDTIBOX?", key, settings.editBoxSettings)
+
+
+    settings.editBoxSettings.textSettings:SetAnchor(slider)
+    local _, editBox = ns.builder.CreateEditBox(section, "", key, settings.editBoxSettings)
+    setEditBox(slider, editBox)
     --linkEditBoxToSlider(slider, editBox)
 
     return label, slider

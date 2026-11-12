@@ -8,6 +8,8 @@ settings.__index = settings
 function settings:NewSettings(settings, anchor)
     settings = settings or {}
 
+    local offset = settings.offset or builder.offset(6, -2)
+    local point = settings.point or builder.point("LEFT", anchor, "RIGHT", offset.x, offset.y)
     local textSettings =
         ns.builder.settings.text:NewSettings({
             offset = { x = 0, y = -8 }
@@ -15,9 +17,9 @@ function settings:NewSettings(settings, anchor)
 
     return setmetatable({
         textSettings = settings.textSettings or textSettings,
-        offset = settings.offset or builder.offset(6, -2),
+        offset = offset,
         width = settings.width or 50,
-        point = settings.point or nil,
+        point = point,
         template = settings.template or "UIDropDownMenuTemplate",
         onValueChanged = settings.onValueChanged or function(_) end,
 

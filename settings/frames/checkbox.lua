@@ -1,5 +1,12 @@
 local name, ns = ...
 
+local function createAnchorFrame(section, settings)
+    local frame = CreateFrame("Frame", nil, section.optionsPanel)
+    frame:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
+        settings.point.y)
+    return frame
+end
+
 local function createCheckBox(section, settings)
     local checkBox = CreateFrame(settings.frameType, nil, section.optionsPanel, settings.template)
     checkBox:SetPoint(settings.point.point, settings.point.relativeTo, settings.point.relativePoint, settings.point.x,
@@ -26,6 +33,8 @@ local function setFetch(checkBox, key)
 end
 
 function ns.builder.CreateCheckBox(section, text, key, settings)
+    local anchor = createAnchorFrame(section, settings)
+
     local checkBox = createCheckBox(section, settings)
     setOnClick(checkBox, key)
     setFetch(checkBox, key)
