@@ -8,7 +8,7 @@ settings.__index = settings
 function settings:NewSettings(settings, anchor)
     settings = settings or {}
 
-    local offset = settings.offset or builder.offset(0, -24)
+    local offset = settings.offset or builder.offset(0, -18)
 
     local textSettings =
         ns.builder.settings.text:NewSettings({
