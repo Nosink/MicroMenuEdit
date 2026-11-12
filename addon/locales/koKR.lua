@@ -2,8 +2,6 @@ local _, ns = ...
 local L = ns.L
 
 if ns.locale == "koKR" then
-    L["NAME"] = "Micro Menu Edit"
-
     L["OPTIONS_TITLE"] = "미니 메뉴 편집"
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "미니 메뉴"
     L["OPTIONS_BORDER_CHECKBOX"] = "미니 메뉴 테두리 표시"

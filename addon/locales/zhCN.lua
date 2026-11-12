@@ -2,8 +2,6 @@ local _, ns = ...
 local L = ns.L
 
 if ns.locale == "zhCN" then
-    L["NAME"] = "Micro Menu Edit"
-
     L["OPTIONS_TITLE"] = "编辑微型菜单"
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "微型菜单"
     L["OPTIONS_BORDER_CHECKBOX"] = "显示微型菜单边框"

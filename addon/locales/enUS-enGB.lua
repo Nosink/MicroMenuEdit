@@ -1,7 +1,7 @@
 local name, ns = ...
 local L = ns.L
 
-L["NAME"] = "Micro Menu Edit"
+L["NAME"] = "MicroMenu |cFFFF6969Edit|r"
 
 L["OPTIONS_TITLE"] = "Micro Menu Settings"
 

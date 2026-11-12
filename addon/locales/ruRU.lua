@@ -2,8 +2,6 @@ local name, ns = ...
 local L = ns.L
 
 if ns.locale == "ruRU" then
-    L["NAME"] = "Micro Menu Edit"
-
     L["OPTIONS_TITLE"] = "Настройка микроменю"
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Микроменю"
     L["OPTIONS_BORDER_CHECKBOX"] = "Показывать рамку микроменю"

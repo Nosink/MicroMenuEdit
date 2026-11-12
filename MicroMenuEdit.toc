@@ -1,10 +1,24 @@
 
 ## Title: MicroMenu |cFFFF6969Edit|r
+## X-Title: MicroMenuEdit
 
 ## Interface:  16001
+
 ## Category: Interface
+## Category-enGB: Interface
+## Category-esES: Interfaz
+## Category-esMX: Interfaz
+## Category-ruRU: Интерфейс
+## Category-deDE: Interface
+## Category-frFR: Interface
+## Category-itIT: Interfaccia
+## Category-ptBR: Interface
+## Category-koKR: 인터페이스
+## Category-zhCN: 界面
+## Category-zhTW: 介面
 
 ## Notes: Customize the micro menu buttons, border, performance bar, scale, and padding.
+## Notes-enGB: Customize the micro menu buttons, border, performance bar, scale, and padding.
 ## Notes-esES: Personaliza los botones, el borde, la barra de rendimiento, la escala y el espaciado del micromenú.
 ## Notes-esMX: Personaliza los botones, el borde, la barra de rendimiento, la escala y el espaciado del micromenú.
 ## Notes-ruRU: Настройте кнопки микроменю, рамку, панель производительности, масштаб и отступы.
@@ -18,12 +32,11 @@
 
 ## Author: Nosink Ð
 ## Version: 1.1.0
+
 ## IconTexture: Interface\Icons\inv_misc_gear_01
 
 ## SavedVariables: MicroMenuEditDB
 ## SavedVariablesPerCharacter: MicroMenuEditPCDB
-
-## X-Build: MicroMenuEdit
 
 # _CORE
 core.xml
@@ -45,9 +58,7 @@ addon/settings/commands.lua
 # Addon - MVC
 # ---------------------
 addon/model/microBar.lua
-# ---------------------
 addon/view/microBar.lua
-# ---------------------
 # ---------------------
 
 # Addon - Core

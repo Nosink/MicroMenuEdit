@@ -2,8 +2,6 @@ local name, ns = ...
 local L = ns.L
 
 if ns.locale == "esES" or ns.locale == "esMX" then
-    L["NAME"] = "Micro Menu Edit"
-
     L["OPTIONS_TITLE"] = "Editar micromenú"
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Micromenú"
     L["OPTIONS_BORDER_CHECKBOX"] = "Mostrar borde del micromenú"

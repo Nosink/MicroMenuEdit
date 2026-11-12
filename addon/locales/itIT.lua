@@ -2,8 +2,6 @@ local _, ns = ...
 local L = ns.L
 
 if ns.locale == "itIT" then
-    L["NAME"] = "Micro Menu Edit"
-
     L["OPTIONS_TITLE"] = "Modifica micro-menu"
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Micro-menu"
     L["OPTIONS_BORDER_CHECKBOX"] = "Mostra bordo del micro-menu"

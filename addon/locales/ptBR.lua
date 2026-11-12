@@ -2,8 +2,6 @@ local _, ns = ...
 local L = ns.L
 
 if ns.locale == "ptBR" then
-    L["NAME"] = "Micro Menu Edit"
-
     L["OPTIONS_TITLE"] = "Editar micromenu"
     L["OPTIONS_BUTTONS_BAR_SECTION"] = "Micromenu"
     L["OPTIONS_BORDER_CHECKBOX"] = "Mostrar borda do micromenu"
