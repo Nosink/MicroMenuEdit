@@ -7,6 +7,12 @@
 - Updated the addon icon to a settings gear.
 - Completed localized addon notes and settings text for enUS/enGB, deDE, esES/esMX, frFR, itIT, koKR, ptBR, ruRU, zhCN, and zhTW.
 
+### Fixed
+
+- Fixed the character portrait texture in the settings preview.
+- Updated the portrait mask and sizing for a cleaner button icon.
+- Fixed localized tooltip text in the settings preview.
+
 ## [1.0.0] - 2026-11-12
 
 ### Added
