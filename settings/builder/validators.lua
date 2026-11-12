@@ -8,6 +8,12 @@ function ns.builder.noValidator()
 end
 
 function ns.builder.inRangeValidator(min, max)
+    local function inValidFormat(number)
+        local text = string.format("%.2f", number)
+        text = text:gsub("0+$", "")
+        return text:gsub("%.$", "")
+    end
+
     return {
         validate = function(text)
             local number = tonumber(text)
@@ -15,13 +21,10 @@ function ns.builder.inRangeValidator(min, max)
         end,
         normalize = function(text)
             local number = tonumber(text)
-            if not number then return tostring(min) end
-            if number < min then return tostring(min) end
-            if number > max then return tostring(max) end
-            local result = string.format("%.2f", number)
-            result = result:gsub("0+$", "")
-            result = result:gsub("%.$", "")
-            return result
+            if not number then return inValidFormat(min) end
+            if number < min then return inValidFormat(min) end
+            if number > max then return inValidFormat(max) end
+            return inValidFormat(number)
         end
     }
 end
