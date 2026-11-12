@@ -9,3 +9,5 @@ local function onVariablesLoaded(_)
 end
 
 ns.bus:RegisterEvent("VARIABLES_LOADED", onVariablesLoaded)
+
+local color = "#69ccf0"

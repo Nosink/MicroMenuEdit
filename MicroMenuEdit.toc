@@ -1,5 +1,5 @@
 
-## Title: MicroMenuEdit
+## Title: Micro Menu |cFFFF6969Edit|r
 
 ## Interface:  16001
 ## Category: Interface
@@ -18,7 +18,7 @@
 
 ## Author: Nosink Ð
 ## Version: 1.1.0
-## IconTexture: Interface\Icons\inv_misc_gear_06
+## IconTexture: Interface\Icons\inv_misc_gear_01
 
 ## SavedVariables: MicroMenuEditDB
 ## SavedVariablesPerCharacter: MicroMenuEditPCDB
